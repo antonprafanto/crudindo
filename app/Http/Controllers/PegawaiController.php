@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Pegawai as ModelPegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Pegawai;
 
 
 class PegawaiController extends Controller
@@ -11,10 +13,10 @@ class PegawaiController extends Controller
 	public function index()
 	{
     	// mengambil data dari table pegawai
-		$pegawai = DB::table('pegawai')->get();
-
+        //$pegawai = Pegawai::paginate(3);
+        $pegawai = DB::table('pegawai')->paginate(3);
     	// mengirim data pegawai ke view index
-		return view('index',['pegawai' => $pegawai]);
+		return view('index', ['pegawai' => $pegawai]);
 
 	}
 

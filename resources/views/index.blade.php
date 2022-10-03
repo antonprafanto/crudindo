@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Kepegawaian</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -13,7 +16,7 @@
 	<br/>
 	<br/>
 
-	<table border="1">
+	<table class="table table-striped">
 		<tr>
 			<th>Nama</th>
 			<th>Jabatan</th>
@@ -35,7 +38,11 @@
 		</tr>
 		@endforeach
 	</table>
-
-
+    @if($pegawai->hasPages())
+    <div class="card-footer">
+        {{ $pegawai->links() }}
+    </div>
+    @endif
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
